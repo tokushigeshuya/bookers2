@@ -1,0 +1,29 @@
+
+
+
+<div class="container">  <!-- この行を追加 -->
+  <div class="row">      <!-- この行を追加 -->
+    <div class="col-lg-3">
+    <%= render 'users/user', user: @user %>
+    <%= render 'book', book: @book %>
+    </div>
+    <div class="col-lg-9">
+      <h1>Books</h1>
+    <table class="table table-striped">
+    <thead>
+    <tr>
+    <th>title</th>
+    <th>body</th>
+    </tr>
+  </thead>
+    <tr>
+      <% @books.each do |book| %>
+      <td><%= book.title %></td>
+      <td><%= book.body %></td>
+      <% end %>
+      </tr>
+
+      </table>
+    </div>
+  </div>
+</div>
