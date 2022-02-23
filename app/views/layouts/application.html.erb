@@ -2,52 +2,63 @@
 <html>
   <head>
     <title>Bookers2</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <h1><a href = "/" >bookres</a></h1>
-    <header>
-    <% if user_signed_in? %>
-     <li>
-      <%= link_to "Home", user_path(current_user) %>
-     </li>
-     <li>
-      <%= link_to "Users", users_path %>
-     </li>
-     <li>
-       <%= link_to "Books", books_path %>
-     </li>
-      <li>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-      </li>
+  <body >
+    <header class="navbar navbar navbar-dark bg-dark navbar-inverse">
+      <div class="container">
+      <nav class='nav navbar-nav navbar-left' >
+        <h3><a class="navbar-brand p-3" href = "/" >bookres</a></h3>
+      </nav>
+        <% if user_signed_in? %>
+
+         <li>
+          <%= link_to "Home", user_path(current_user) %>
+         </li>
+         <li>
+          <%= link_to "Users", users_path %>
+         </li>
+         <li>
+           <%= link_to "Books", books_path %>
+         </li>
+          <li>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          </li>
 
 
-    <% else %>
-      <li>
-      <%= link_to "Home", root_path %>
-     </li>
-      <li>
-        <%= link_to "About", about_path %>
-      </li>
-      <li>
-        <%= link_to "Sign up", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "Log in", new_user_session_path %>
-      </li>
-    <% end %>
-  </header>
+        <% else %>
+          <li>
+          <%= link_to "Home", root_path %>
+         </li>
+          <li>
+            <%= link_to "About", about_path %>
+          </li>
+          <li>
+            <%= link_to "Sign up", new_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to "Log in", new_user_session_path %>
+          </li>
+
+        <% end %>
+
+
+  </div>
+</header>
 
   <main class="mb-auto">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </main>
-    <footer>
+    <footer class="container">
       <p>CopyRight Infratop.inc</p>
     </footer>
   </body>

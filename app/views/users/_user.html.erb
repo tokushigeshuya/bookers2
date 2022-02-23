@@ -1,7 +1,10 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
 <h3>User info</h3>
 <%= image_tag user.get_image %>
 
 <p>Name <%= user.name %></p>
 <p>introduction <%= user.introduction %></p>
 
-<p><%= link_to "プロフィール編集", edit_user_path(user) %></p>
+<p><%= link_to "プロフィール編集", edit_user_path(user), class: "btn btn-secondary" %></p>
