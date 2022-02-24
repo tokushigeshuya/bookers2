@@ -5,6 +5,7 @@
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/ad83e48130.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -17,37 +18,39 @@
       <nav class='nav navbar-nav navbar-left' >
         <h3><a class="navbar-brand p-3" href = "/" >bookres</a></h3>
       </nav>
+      <ul class="d-flex flex-row navbar-nav ml-auto">
         <% if user_signed_in? %>
 
-         <li>
-          <%= link_to "Home", user_path(current_user) %>
+         <li class="nav-item m-3">
+          <i class="fa-solid fa-house-chimney"></i><%= link_to "Home", user_path(current_user) %>
          </li>
-         <li>
-          <%= link_to "Users", users_path %>
+         <li class="nav-item m-3">
+          <i class="fa-solid fa-users"></i><%= link_to "Users", users_path %>
          </li>
-         <li>
-           <%= link_to "Books", books_path %>
+         <li class="nav-item m-3">
+           <i class="fa-solid fa-book-open"></i><%= link_to "Books", books_path %>
          </li>
-          <li>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          <li class="nav-item m-3">
+            <i class="fa-solid fa-right-from-bracket"></i><%= link_to "Log out", destroy_user_session_path, method: :delete %>
           </li>
 
 
         <% else %>
-          <li>
-          <%= link_to "Home", root_path %>
+          <li class="nav-item m-3">
+          <i class="fa-solid fa-house-chimney"></i><%= link_to "Home", root_path %>
          </li>
-          <li>
-            <%= link_to "About", about_path %>
+          <li class="nav-item m-3">
+            <i class="fa-solid fa-link"></i><%= link_to "About", about_path %>
           </li>
-          <li>
-            <%= link_to "Sign up", new_user_registration_path %>
+          <li class="nav-item m-3">
+            <i class="fa-solid fa-user-plus"></i><%= link_to "Sign up", new_user_registration_path %>
           </li>
-          <li>
-            <%= link_to "Log in", new_user_session_path %>
+          <li class="nav-item m-3">
+            <i class="fa-solid fa-right-to-bracket"></i><%= link_to "Log in", new_user_session_path %>
           </li>
 
         <% end %>
+        </ul>
 
 
   </div>
@@ -58,7 +61,7 @@
     <p class="alert"><%= alert %></p>
     <%= yield %>
   </main>
-    <footer class="container">
+    <footer class="mx-auto" style="width: 200px;">
       <p>CopyRight Infratop.inc</p>
     </footer>
   </body>

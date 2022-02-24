@@ -1,3 +1,16 @@
+<div class="box2">
+<% if @book.errors.any? %>
+  <div class=errors>
+  <%= @book.errors.count %>件のerrorsが発生しました
+  </div>
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+
 <h1>Editing Book</h1>
 
 <%= form_with model: @book, local: true do |f| %>
@@ -14,3 +27,4 @@
 |
 <%= link_to 'back', books_path %>
 
+</div>
