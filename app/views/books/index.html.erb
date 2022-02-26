@@ -10,18 +10,19 @@
 
 <div class="container">  <!-- この行を追加 -->
   <div class="row">      <!-- この行を追加 -->
-    <div class="col-lg-3">
+    <div class="col-md-3">
     <%= render 'users/user', user: current_user %>
     <%= render 'book', book: @book %>
     </div>
-    <div class="col-lg-9">
+    <div class="col-md-8 offset-md-1">
       <h1>Books</h1>
-    <table class="table table-striped">
+    <table class="table table-hover table-inverse">
     <thead>
     <tr>
     <th></th>
     <th>title</th>
     <th>body</th>
+    <th colspan="3"></th>
     </tr>
   </thead>
 

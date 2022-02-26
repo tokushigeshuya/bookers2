@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
+
 
   def index
     @user = current_user
@@ -21,7 +21,8 @@ class UsersController < ApplicationController
     if @user == current_user
       render :edit
     else
-      redirect_to user_path
+      @user = current_user
+      redirect_to user_path(@user.id)
     end
   end
 
